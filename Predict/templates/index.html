@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Predict</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+  <body>
+    <div class="w3-container">
+      <div class="w3-container">
+        <div class="w3-container w3-border w3-border-yellow w3-section">
+          <h1>Predict</h1>
+        </div>
+        <div class="w3-container w3-border w3-padding-16">
+          <div>
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+              <input
+                class="w3-container"
+                type="file"
+                required
+                accept=".csv"
+                name="uploaded-file"
+              />
+              <input type="submit" class="w3-button w3-blue" value="Predict" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

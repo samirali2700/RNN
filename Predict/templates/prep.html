@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Predict</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+  <body>
+    <div class="w3-container">
+      <div class="w3-container">
+        <div class="w3-container w3-border w3-border-yellow w3-section">
+          <h1>Predict</h1>
+        </div>
+        <div class="w3-container w3-border w3-padding-16">
+          <div class="w3-container w3-border w3-padding-16" id="prep-container">
+            <p>Available Models:</p>
+
+            <div class="w3-container w3-border w3-ul w3-padding w3-section">
+              {% for model in models %}
+              <li class="w3-button w3-block" onclick="addModel('{{model}}')">
+                {{ model }}
+              </li>
+              {% endfor %}
+            </div>
+            <div
+              class="w3-container w3-border w3-padding w3-hide"
+              id="form-container"
+            >
+              <form method="POST" action="/predict">
+                <input type="text" name="model" id="model" readonly />
+                <input
+                  class="w3-button w3-blue"
+                  type="submit"
+                  value="predict"
+                />
+              </form>
+            </div>
+          </div>
+          <div class="w3-container w3-hide" id="predicting">
+            <p>Predicting....</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      pickedModel = document.getElementById("model");
+      form = document.getElementById("form-container");
+      function addModel(model) {
+        pickedModel.value = model;
+        form.classList.remove("w3-hide");
+      }
+
+      form.addEventListener("submit", (e) => {
+        document.getElementById("prep-container").classList.add("w3-hide");
+        document.getElementById("predicting").classList.remove("w3-hide");
+      });
+    </script>
+  </body>
+</html>
